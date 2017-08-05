@@ -44,3 +44,27 @@
       </div>
   </article>
 </section>
+
+<section>
+    <article>
+      <h3>Event binding</h3>
+      <div>
+        <button class="btn btn-primary" (click)="botaoClicado()" >Me clique!</button>
+        <br><br>
+        <input type="text"
+           (keyup)="onKeyUp($event)" 
+           (keyup.enter)="salvarValor(campoValor.value)" 
+           (blur)="salvarValor(campoValor.value)"
+           #campoValor />
+
+        <p>Valor Atual:  {{ valorAtual }} </p>
+        <p>Valor Valor:  {{ valorSalvo }} </p>    
+
+        <br>
+        <span
+        (mouseover)="onMouseOverOut()"
+        (mouseout)="onMouseOverOut()"
+        [class.hightlight]="isMouseOver" >Passe o mouse sobre min</span>
+      </div>
+    </article>
+</section>
