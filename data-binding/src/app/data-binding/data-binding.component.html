@@ -67,4 +67,32 @@
         [class.hightlight]="isMouseOver" >Passe o mouse sobre min</span>
       </div>
     </article>
+    <section class="two-way-binding">
+        <article>
+            <h3>Two-way data binding</h3>
+            <div>
+                 <input type="text"
+                 [value]="nome"
+                 (input)="nome = $event.target.value" />   
+
+                 <input type="text"
+                 [ngModel]="nome"
+                 (ngModelChange)="nome = $event" />   
+                 
+                 <input type="text"
+                 [(ngModel)]="nome" />   
+
+                 <input type="text"
+                 bindon-ngModel="nome" />   
+
+                 <p> Você digitou: {{ nome }}</p>
+            </div>
+
+            <div>
+                     <p> Meu nome é: {{ pessoa.nome }} com idade {{ pessoa.idade }}</p>    
+                    <input type="text" [(ngModel)]="pessoa.nome" />
+                    <input type="text" [(ngModel)]="pessoa.idade" />
+            </div>
+        </article>
+    </section>
 </section>
