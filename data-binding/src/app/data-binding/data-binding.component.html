@@ -67,7 +67,7 @@
         [class.hightlight]="isMouseOver" >Passe o mouse sobre min</span>
       </div>
     </article>
-    <section class="two-way-binding">
+    <!--<section class="two-way-binding">
         <article>
             <h3>Two-way data binding</h3>
             <div>
@@ -93,6 +93,12 @@
                     <input type="text" [(ngModel)]="pessoa.nome" />
                     <input type="text" [(ngModel)]="pessoa.idade" />
             </div>
+        </article>
+    </section>-->
+    <section class="inpu-output-properties">
+        <article>
+            <h3>Reusando Componentes com Input properties</h3>
+            <app-curso [nome]="nomedoCurso"></app-curso>
         </article>
     </section>
 </section>
