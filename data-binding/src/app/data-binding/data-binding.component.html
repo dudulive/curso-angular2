@@ -99,6 +99,8 @@
         <article>
             <h3>Reusando Componentes com Input properties</h3>
             <app-curso [nome]="nomedoCurso"></app-curso>
+            <contador [valor]="valorInicial"
+             (mudouValor)="onMudouValor($event)"></contador>
         </article>
     </section>
 </section>
