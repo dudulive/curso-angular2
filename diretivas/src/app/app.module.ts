@@ -11,7 +11,8 @@ import { TesteComponent } from './teste/teste.component';
   declarations: [
     AppComponent,
     DiretivaNgifComponent,
-    TesteComponent
+    TesteComponent,
+    DiretivaNgifComponent
   ],
   imports: [
     BrowserModule,
