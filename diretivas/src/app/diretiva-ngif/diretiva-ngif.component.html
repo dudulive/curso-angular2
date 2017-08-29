@@ -5,3 +5,14 @@
 <div *ngIf="cursos.length == 0">
   Não existe cursos para serem Listados.
 </div>
+
+<h5>Removendo o * usando templates</h5>
+<template [ngIf]="cursos.length > 0">
+  <div>
+    Lista de Cursos aqui.
+  </div>
+</template>
+
+<div template="ngIf cursos.length == 0">
+  Não existe cursos para serem Listados.
+</div>

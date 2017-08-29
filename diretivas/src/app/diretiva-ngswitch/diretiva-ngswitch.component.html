@@ -17,3 +17,20 @@
   <p *ngSwitchCase="'disabled'">Disabled </p>
   <p *ngSwitchDefault>Home </p>
 </div>
+
+<h5>Removendo o * usando templates</h5>
+
+<div class="container" [ngSwitch]="aba" >
+    <template [ngSwitchCase]="'features'">
+        <p >Features </p>
+    </template>
+    <template [ngSwitchCase]="'pricing'">
+        <p >Pricing </p>
+    </template>
+    <template [ngSwitchCase]="'disabled'">
+        <p >Disabled </p>
+    </template>
+    <template [ngSwitchCase]="'home'" ngSwitchDefault>
+        <p >Home </p>
+    </template>
+  </div>
