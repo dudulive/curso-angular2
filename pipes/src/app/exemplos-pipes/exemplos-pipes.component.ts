@@ -16,6 +16,14 @@ export class ExemplosPipesComponent implements OnInit {
     url: 'https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms'
   };
 
+  livros: string[] = ['Angular 2', 'Java'];
+  filtro: string;
+
+  addCurso(valor){
+    this.livros.push(valor);
+    console.log(this.livros);
+  }
+
   constructor() { }
 
   ngOnInit() {
