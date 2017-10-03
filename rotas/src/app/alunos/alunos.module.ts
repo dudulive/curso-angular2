@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { AlunosService } from './alunos.service';
 import { AlunosRoutingModule } from './aluno.routing.module';
 import { AlunosComponent } from './alunos.component';
 
@@ -9,6 +11,7 @@ import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
 @NgModule({ 
     imports: [
         CommonModule,
+        FormsModule,
         AlunosRoutingModule
     ],
     declarations:[
@@ -16,6 +19,6 @@ import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
         AlunoFormComponent,
         AlunoDetalheComponent
     ],
-    providers:[] 
+    providers:[ AlunosService ] 
   })
   export class AlunosModule { }
