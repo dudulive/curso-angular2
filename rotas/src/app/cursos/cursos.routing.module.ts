@@ -7,9 +7,9 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const CursosRoute: Routes = [
-    { path: 'cursos', component : CursosComponent },
-    { path: 'curso/:id', component : CursoDetalheComponent },
-    { path: 'naoEncontrado', component : CursoMaoEncontradoComponent }
+    { path: '', component : CursosComponent },
+    { path: 'cursos/:id', component : CursoDetalheComponent },
+    { path: 'cursos/naoEncontrado', component : CursoMaoEncontradoComponent }
 ]
 
 @NgModule({
