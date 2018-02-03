@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AuthService } from 'app/login/auth.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  mostarMenu: boolean = false;
+
+  constructor(private authService: AuthService){
+  }
+
+  ngOnInit() {
+    this.authService.mostarMenuEmitter.subscribe(
+      mostrar => this.mostarMenu = mostrar
+    );
+  }
 }
