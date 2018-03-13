@@ -1,3 +1,5 @@
+import { AlunosGuard } from './guards/alunos.guard';
+import { CursosGuard } from './guards/cursos.guard';
 import { AppRoutingModule } from './app.routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,6 +27,7 @@ import { AuthGuard } from 'app/guards/auth.guard';
     
   ],
   bootstrap: [AppComponent],
-  providers:[AuthService, AuthGuard]
+  providers:[AuthService, 
+            AuthGuard, CursosGuard, AlunosGuard]
 })
 export class AppModule { }
