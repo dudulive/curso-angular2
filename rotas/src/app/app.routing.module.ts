@@ -10,7 +10,8 @@ import { AuthGuard } from 'app/guards/auth.guard';
 import { CursosGuard } from 'app/guards/cursos.guard';
 
 const AppRoute: Routes = [
-    { path: 'cursos', loadChildren: 'app/cursos/cursos.module#CursosModule',canActivate: [AuthGuard],  canActivateChild: [CursosGuard]},
+    { path: 'cursos', loadChildren: 'app/cursos/cursos.module#CursosModule',canActivate: [AuthGuard],
+     canActivateChild: [CursosGuard] , canLoad: [AuthGuard]},
     { path: 'alunos', loadChildren: 'app/alunos/alunos.module#AlunosModule',canActivate: [AuthGuard] },
     { path: 'login', component : LoginComponent},
     { path: '', component : HomeComponent, canActivate: [AuthGuard] 
