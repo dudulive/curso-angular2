@@ -12,7 +12,7 @@ import { DataFormComponent } from './data-form/data-form.component';
   declarations: [
     AppComponent,
     TemplateFormComponent,
-    DataFormComponent
+    DataFormComponent,
   ],
   imports: [
     BrowserModule,
