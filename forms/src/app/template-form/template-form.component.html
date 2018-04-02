@@ -14,5 +14,5 @@
     <input type="email" class="form-control" id="email" placeholder="nome@email.com" name="email"
       [(ngModel)]="usuario.email" required email >
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button  [disabled]="!f.valid" type="submit" class="btn btn-primary">Submit</button>
 </form>
