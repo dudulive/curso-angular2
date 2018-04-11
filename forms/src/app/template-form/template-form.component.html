@@ -26,6 +26,7 @@
       </app-campo-control-erro>
     </div>
   </div>
+  <div ngModelGroup="endereco">
   <div class="form-group">
     <div class="col-md-3"  [ngClass]="aplicaCssErro(cep)">
       <label for="cep" class="control-label">CEP</label>
@@ -91,6 +92,7 @@
     </app-campo-control-erro>  
     </div>
   </div>
+</div>
 
   <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Submit</button>
   <app-form-debug [form]="f"></app-form-debug>
