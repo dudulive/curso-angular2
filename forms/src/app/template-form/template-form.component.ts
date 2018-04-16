@@ -14,8 +14,17 @@ export class TemplateFormComponent implements OnInit {
     email: 'teste@teste.com'
   }
 
-  onSubmit(form){
+  onSubmit(formulario){
+    console.log(formulario);
 
+    //form.value
+    //console.log(this.usuario);
+    this.http.post('https://httpbin.org/post', JSON.stringify(formulario.value))
+      .map(res => res)
+      .subscribe(dados => {
+        console.log(dados);
+        formulario.form.reset();
+      });
   }
 
   constructor(private http: Http) { }
