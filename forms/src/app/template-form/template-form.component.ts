@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-template-form',
@@ -16,7 +18,7 @@ export class TemplateFormComponent implements OnInit {
 
   }
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
@@ -30,6 +32,39 @@ export class TemplateFormComponent implements OnInit {
       'has-error': this.verificaValidTouched(campo),
       'has-feedback': this.verificaValidTouched(campo)
     }
+  }
+
+  consultaCEP(cep, form){
+    this.cepService.consultaCEP(cep, this.resetaDadosForm, form)
+      .subscribe(dados => this.populaDadosForm(dados, form));
+  }
+
+  populaDadosForm(dados, formulario){
+
+    formulario.form.patchValue({
+      endereco: {
+        rua: dados.logradouro,
+        //cep: dados.cep,
+        complemento: dados.complemento,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });
+
+    //console.log(form);
+  }
+
+  resetaDadosForm(formulario){
+    formulario.form.patchValue({
+      endereco: {
+        rua: null,
+        complemento: null,
+        bairro: null,
+        cidade: null,
+        estado: null
+      }
+    });
   }
 
 }
