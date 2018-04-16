@@ -44,15 +44,12 @@ export class TemplateFormComponent implements OnInit {
     formulario.form.patchValue({
       endereco: {
         rua: dados.logradouro,
-        //cep: dados.cep,
         complemento: dados.complemento,
         bairro: dados.bairro,
         cidade: dados.localidade,
         estado: dados.uf
       }
     });
-
-    //console.log(form);
   }
 
   resetaDadosForm(formulario){
