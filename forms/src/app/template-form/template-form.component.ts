@@ -1,3 +1,4 @@
+import { CepService } from './../shared/cep.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -27,7 +28,7 @@ export class TemplateFormComponent implements OnInit {
       });
   }
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private cepService: CepService) { }
 
   ngOnInit() {
   }
