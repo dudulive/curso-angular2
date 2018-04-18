@@ -37,4 +37,26 @@ export class DataFormComponent implements OnInit {
     });
   }
 
+  onSubmit() {
+    console.log(this.formulario);
+
+    if (this.formulario.valid) {
+      this.http
+        .post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
+        .map(res => res)
+        .subscribe(
+          dados => {
+            console.log(dados);
+            // reseta o form
+            // this.formulario.reset();
+            // this.resetar();
+          },
+          (error: any) => alert('erro')
+        );
+    } else {
+      console.log('formulario invalido');
+      this.verificaValidacoesForm(this.formulario);
+    }
+  }
+
 }
