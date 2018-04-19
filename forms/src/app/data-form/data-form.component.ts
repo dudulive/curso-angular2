@@ -71,4 +71,8 @@ export class DataFormComponent implements OnInit {
     });
   }
 
+  resetar() {
+    this.formulario.reset();
+  }
+
 }
