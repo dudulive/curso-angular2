@@ -1,3 +1,4 @@
+import { CepService } from './../shared/cep.service';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +12,8 @@ export class DataFormComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: Http) { }
+  constructor(private formBuilder: FormBuilder, private http: Http,
+    private cepService: CepService) { }
 
   ngOnInit() {
      /*this.formulario = new FormGroup({
@@ -94,6 +96,42 @@ export class DataFormComponent implements OnInit {
     if (campoEmail.errors) {
       return campoEmail.errors['email'] && campoEmail.touched;
     }
+  }
+
+  consultaCEP() {
+    let cep = this.formulario.get('endereco.cep').value;
+    this.cepService.consultaCEP(cep, this.resetaDadosForm, this.formulario)
+      .subscribe(dados => this.populaDadosForm(dados));
+  }
+
+  populaDadosForm(dados) {
+    //this.formulario.setValue({});
+    this.formulario.patchValue({
+      endereco: {
+        rua: dados.logradouro,
+        // cep: dados.cep,
+        complemento: dados.complemento,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });
+
+    this.formulario.get('nome').setValue('Loiane');
+
+    // console.log(form);
+  }
+
+  resetaDadosForm(formulario) {
+    formulario.patchValue({
+      endereco: {
+        rua: null,
+        complemento: null,
+        bairro: null,
+        cidade: null,
+        estado: null
+      }
+    });
   }
 
 }
